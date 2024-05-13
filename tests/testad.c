@@ -13,7 +13,7 @@ struct S1 vp[10];
 
 double sum(double x[5],int n){
 	int i;
-	double r=0;
+	double r;
 	i=0;
 	while(i<n){
 		double n;
@@ -23,9 +23,6 @@ double sum(double x[5],int n){
 		}
 	return r;
 	}
-double sum(){
-	return 6;
-}
 void f(struct S1 p){
 	puti(p.i);
 	}

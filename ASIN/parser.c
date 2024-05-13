@@ -71,6 +71,7 @@ bool typeBase(Type *t)
 {
     Token *start = iTk;
     Token *last = consumedTk;
+    t->n=-1;
     if (consume(TYPE_INT))
     {
         t->tb = TB_INT;
@@ -90,8 +91,9 @@ bool typeBase(Type *t)
     {
         if (consume(ID))
         {
+            Token *tkName = consumedTk;
             t->tb = TB_STRUCT;
-            t->s = findSymbol(consumedTk->text);
+            t->s = findSymbol(tkName->text);
             if (!t->s)
                 tkerr("Undefined struct %s.\n", consumedTk->text);
             return true;
@@ -250,6 +252,7 @@ bool arrayDecl(Type *t)
         {
             Token *tkSize = consumedTk;
             t->n = tkSize->i;
+            printf("value t in array decl:%d\n",t->n);
         }
         else
         {
@@ -1042,4 +1045,6 @@ void parse(Token *tokens)
     pushDomain();
     if (!unit())
         tkerr("syntax error");
+    showDomain(symTable,"global");
+    dropDomain();
 }
