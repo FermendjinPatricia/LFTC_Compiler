@@ -1,16 +1,16 @@
 #pragma once
 
-
-#include "/home/patricia/LFTC/COMPILER/ALEX/lexer.h"
 #include <stdbool.h>
-#include "/home/patricia/LFTC/COMPILER/AD/ad.h"
+#include "../ALEX/lexer.h"
+#include "../AD/ad.h"
+#include "../AT/at.h"
 
 void parse(Token *tokens);
 bool typeBase(Type *t);
 bool stm();
-bool expr();
-bool exprAssign();
-bool exprPrimary();
+bool expr(Ret *r);
+bool exprAssign(Ret *r);
+bool exprPrimary(Ret *r);
 bool stmCompound(bool newDomain);
 bool fnDef();
 bool unit();
@@ -18,20 +18,20 @@ bool structDef();
 bool arrayDecl(Type *t);
 bool varDef();
 bool fnParam();
-bool exprOrPrim();
-bool exprOr();
-bool exprAndPrim();
-bool exprAnd();
-bool exprEqPrim();
-bool exprEq();
-bool exprRelPrim();
-bool exprRel();
-bool exprAddPrim();
-bool exprAdd();
-bool exprMulPrim();
-bool exprMul();
-bool exprCast();
-bool exprUnary();
-bool exprPostfixPrim();
-bool exprPostfix();
+bool exprOrPrim(Ret *r);
+bool exprOr(Ret *r);
+bool exprAndPrim(Ret *r);
+bool exprAnd(Ret *r);
+bool exprEqPrim(Ret *r);
+bool exprEq(Ret *r);
+bool exprRelPrim(Ret *r);
+bool exprRel(Ret *r);
+bool exprAddPrim(Ret *r);
+bool exprAdd(Ret *r);
+bool exprMulPrim(Ret *r);
+bool exprMul(Ret *r);
+bool exprCast(Ret *r);
+bool exprUnary(Ret *r);
+bool exprPostfixPrim(Ret *r);
+bool exprPostfix(Ret *r);
 

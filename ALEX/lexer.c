@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #include "lexer.h"
-#include "/home/patricia/LFTC/COMPILER/UTILS/utils.h"
+#include "../UTILS/utils.h"
 
 Token *tokens; // single linked list of tokens
 Token *lastTk; // the last token in list
@@ -309,14 +309,13 @@ Token *tokenize(const char *pch)
 			}
 			else if (*pch == '\'') // CHARACTER
 			{
-				{
-					pch += 2;
-					if(*pch == '\'')
-						{char *character = extract(start, pch - 1);
-						tk = addTk(CHAR);
-						tk->c = *character;}
-					else	err("Missing \' \n");
-				}
+				pch += 2;
+				if(*pch == '\'')
+					{char *character = extract(start, pch - 1);
+					tk = addTk(CHAR);
+					tk->c = *character;}
+				else	err("Missing \' \n");
+				pch +=1;
 			}
 			else
 				err("invalid char: %c (%d)", *pch, *pch);
@@ -343,6 +342,12 @@ void showTokens(const Token *tokens)
 			break;
 		case ID:
 			printf("ID:%s\n", tk->text);
+			break;
+		case COMMA:
+			printf("COMMA\n");
+			break;
+		case DOT:
+			printf("DOT\n");
 			break;
 		case LPAR:
 			printf("LPAR\n");
@@ -442,6 +447,7 @@ void showTokens(const Token *tokens)
 			break;
 
 		default:
+			printf("Unknown, %d.\n", tk->code);
 			break;
 		}
 		line_counter += 1;

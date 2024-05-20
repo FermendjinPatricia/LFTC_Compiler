@@ -1,6 +1,6 @@
 #pragma once
 
-#include "/home/patricia/LFTC/COMPILER/VM/vm.h"
+#include "../VM/vm.h"
 
 // the domain analysis
 

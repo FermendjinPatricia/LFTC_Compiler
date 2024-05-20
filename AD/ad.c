@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "/home/patricia/LFTC/COMPILER/UTILS/utils.h"
+#include "../UTILS/utils.h"
 #include "ad.h"
 
 Domain *symTable=NULL;

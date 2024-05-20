@@ -19,6 +19,9 @@ double sum(double x[5],int n){
 		double n;
 		n=x[i];
 		r=r+n;
+		if(1){
+			double n;
+		}
 		i=i+1;
 		}
 	return r;
